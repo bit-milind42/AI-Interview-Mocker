@@ -10,9 +10,9 @@ function Header() {
         console.log("Current path:", path);
     },[])
   return (
-    <div className= "flex p-4 items-center justify-between bg-secondary text-white">
+    <div className= "flex p-4 items-center justify-between bg-secondary">
         <Image src={'/logo.svg'} width={160} height={100} alt="Logo"/>
-        <ul className="hidden md:flex gap-6">
+        <ul className="hidden md:flex gap-6 cursor-pointer" >
             <li className={`flex p-4 items-center justify-between bg-secondary shadow-sm ${path==='/dashboard'&&'text-primary font-bold'}`}>Dashboard</li>
             <li className={`flex p-4 items-center justify-between bg-secondary shadow-sm ${path==='/dashboard/questions'&&'text-primary font-bold'}`}>Questions</li>
             <li className={`flex p-4 items-center justify-between bg-secondary shadow-sm ${path==='/dashboard/upgrade'&&'text-primary font-bold'}`}>Upgrade</li>

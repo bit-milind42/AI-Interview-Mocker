@@ -11,3 +11,7 @@ export const MockInterview = pgTable('mockInterview', {
     createdBy:varchar('createdBy'),
     mockId:varchar('mockId').notNull(),
 })
+
+export const schema = {
+    MockInterview
+};
