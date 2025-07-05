@@ -7,8 +7,11 @@ import Webcam from "react-webcam";
 import { useState } from 'react';
 import QuestionsSection from './_components/QuestionsSection';
 import RecordAnswerSection from './_components/RecordAnswerSection';
+import { Button } from '@/components/ui/button';
+import Link from 'next/link';
 
 function StartInterview({params}) {
+    const unwrappedParams = React.use(params);
     const [interviewData, setInterviewData] = React.useState();
     const [mockInterviewQuestion, setMockInterviewQuestion] = React.useState([]);
     const [activeQuestionIndex, setActiveQuestionIndex] = useState(0);
@@ -17,7 +20,7 @@ function StartInterview({params}) {
     }, []);
 
     const GetInterviewDetails=async()=>{
-        const result = await db.select().from(MockInterview).where(eq(MockInterview.mockId, params.interviewId));
+        const result = await db.select().from(MockInterview).where(eq(MockInterview.mockId, unwrappedParams.interviewId));
         console.log(result)
         const jsonMockResp=JSON.parse(result[0].jsonMockResp)
         console.log(jsonMockResp);
@@ -36,9 +39,17 @@ activeQuestionIndex={activeQuestionIndex}
 
 
 {/* Video/ Audio Recording */}
-<RecordAnswerSection/>
+<RecordAnswerSection
+mockInterviewQuestions={mockInterviewQuestion}
+activeQuestionIndex={activeQuestionIndex}
+interviewData={interviewData}
+/>
             </div>
-            
+            <div className='flex justify-end gap-6'>
+                {activeQuestionIndex >0 && <Button onClick={()=>setActiveQuestionIndex(activeQuestionIndex-1)}>Previous Question</Button>}
+                {activeQuestionIndex!= mockInterviewQuestion?.length-1 && <Button onClick={() => setActiveQuestionIndex(activeQuestionIndex+1)}>Next Question</Button>}
+                {activeQuestionIndex == mockInterviewQuestion?.length-1 && <Link href={'/dashboard/interview/'+interviewData?.mockId+"/feedback"}><Button>End Question</Button></Link>}
+            </div>
         </div>
     )
 }

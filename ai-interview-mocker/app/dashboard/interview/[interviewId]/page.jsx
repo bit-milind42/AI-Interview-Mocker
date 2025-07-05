@@ -11,16 +11,17 @@ import { Button } from '@/components/ui/button';
 import Link from 'next/link';
 
 function Interview({params}){
+    const unwrappedParams = React.use(params);
     const [interviewData, setInterviewData] = useState();
     const [webcamEnabled, setWebcamEnabled] = useState(false);
     
     useEffect(() => {
-        console.log(params.interviewId);
+        console.log(unwrappedParams.interviewId);
         GetInterviewDetails();
     }, []);
     // Used to get interview details by mockId/interviewId
     const GetInterviewDetails=async()=>{
-        const result = await db.select().from(MockInterview).where(eq(MockInterview.mockId, params.interviewId));
+        const result = await db.select().from(MockInterview).where(eq(MockInterview.mockId, unwrappedParams.interviewId));
         console.log(result)
         setInterviewData(result[0]);
     }
@@ -136,7 +137,7 @@ function Interview({params}){
                         
                         {webcamEnabled && (
                             <div className='mt-4 text-center'>
-                                <Link href={`/dashboard/interview/`+params.interviewId+'/start'}>
+                                <Link href={`/dashboard/interview/`+unwrappedParams.interviewId+'/start'}>
                                     <Button className='w-full' size="lg">
                                         Start Interview
                                     </Button>
