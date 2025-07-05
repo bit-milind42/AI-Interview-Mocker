@@ -60,8 +60,8 @@ function RecordAnswerSection({ mockInterviewQuestions, activeQuestionIndex, inte
         setLoading(true);
         const feedbackPrompt = "Question:" + mockInterviewQuestions[activeQuestionIndex]?.question + "\n" +
           ", User Answer:" + userAnswer +', Depends on question and user answer for give interview question '+ "\n" +
-          "please give us rating for answer, and feedback as area of improvement if any" + 
-          "in just 3 to 5 lines to improve it in JSON format with rating field and feedback field" ;
+          "please give us rating for answer on a scale of 1 to 5 (where 1 is poor and 5 is excellent), and feedback as area of improvement if any" + 
+          "in just 3 to 5 lines to improve it in JSON format with rating field (number from 1-5) and feedback field" ;
 
         // Initialize Google Generative AI
         const genAI = new GoogleGenerativeAI(process.env.NEXT_PUBLIC_GEMINI_API_KEY);
