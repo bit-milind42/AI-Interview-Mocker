@@ -19,6 +19,10 @@ An intelligent AI-powered interview practice platform that helps you ace your ne
 - **Payments**: Razorpay
 - **UI**: Radix UI Components
 
+### Deploy on Vercel
+[![Deploy with Vercel](https://vercel.com/button)](https://ai-interview-mocker-mocha-seven.vercel.app/)
+
+
 ## 📸 Screenshots
 
 ### Home Page
