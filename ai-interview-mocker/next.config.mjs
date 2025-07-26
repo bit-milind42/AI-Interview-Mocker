@@ -44,9 +44,6 @@ const nextConfig = {
 
     return config;
   },
-  experimental: {
-    esmExternals: 'loose',
-  },
   transpilePackages: ['@google/genai', '@google/generative-ai'],
 };
 

@@ -2,7 +2,7 @@ import { db } from "@/utils/db";
 import { QuestionBank, Companies, UserQuestionActivity } from "@/utils/schema";
 import { eq, and, desc, sql, ilike, or } from "drizzle-orm";
 import { NextResponse } from "next/server";
-import { auth } from "@clerk/nextjs";
+import { auth } from "@clerk/nextjs/server";
 
 export async function GET(request) {
     try {

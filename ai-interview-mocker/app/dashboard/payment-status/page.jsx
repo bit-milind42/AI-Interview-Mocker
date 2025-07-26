@@ -1,10 +1,10 @@
 "use client";
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, Suspense } from 'react';
 import { CheckCircle, XCircle, ArrowLeft } from 'lucide-react';
 import Link from 'next/link';
 import { useSearchParams } from 'next/navigation';
 
-const PaymentStatusPage = () => {
+const PaymentStatusContent = () => {
     const searchParams = useSearchParams();
     const [status, setStatus] = useState('loading');
     const [details, setDetails] = useState({});
@@ -153,6 +153,18 @@ const PaymentStatusPage = () => {
                 )}
             </div>
         </div>
+    );
+};
+
+const PaymentStatusPage = () => {
+    return (
+        <Suspense fallback={
+            <div className="min-h-screen bg-gray-50 dark:bg-gray-900 flex items-center justify-center">
+                <div className="animate-spin rounded-full h-16 w-16 border-b-2 border-blue-500"></div>
+            </div>
+        }>
+            <PaymentStatusContent />
+        </Suspense>
     );
 };
 
