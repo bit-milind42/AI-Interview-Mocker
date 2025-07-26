@@ -33,7 +33,8 @@ function AddNewInterview() {
     setLoading(true);
     e.preventDefault();
     console.log(jobPosition, jobDesc, jobExperience);
-
+// guardril
+// purpose
     const InputPrompt = `Job position: ${jobPosition}, Job Description: ${jobDesc}, Years of Experience: ${jobExperience}, Depends on Job Position, Job Description & Years of Experience give us ${process.env.NEXT_PUBLIC_INTERVIEW_QUESTION_COUNT} Interview question along with Answer in JSON format, Give us question and answer field on JSON`;
 
     try {

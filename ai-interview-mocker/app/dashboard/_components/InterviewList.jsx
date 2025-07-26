@@ -34,6 +34,12 @@ function InterviewList({ interviews, onInterviewClick }) {
     }
   }
   
+  const handleDeleteInterview = (deletedMockId) => {
+    setInterviewList(prevList => 
+      prevList.filter(interview => interview.mockId !== deletedMockId)
+    );
+  };
+  
   return (
     <div className="space-y-6">
       {/* Section Header */}
@@ -63,6 +69,7 @@ function InterviewList({ interviews, onInterviewClick }) {
                 <InterviewItemCard 
                   key={interview.mockId || index} 
                   interview={interview} 
+                  onDelete={handleDeleteInterview}
                 />
               ))}
             </div>

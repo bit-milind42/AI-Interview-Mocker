@@ -52,15 +52,6 @@ function Header() {
                         <Zap className="h-4 w-4" />
                         Pricing
                     </Link>
-                    <Link 
-                        href="/dashboard/how-it-works" 
-                        className={`flex items-center gap-2 px-4 py-2 rounded-md text-sm font-medium transition-colors hover:bg-accent hover:text-accent-foreground ${
-                            path === '/dashboard/how-it-works' ? 'bg-accent text-accent-foreground' : 'text-muted-foreground'
-                        }`}
-                    >
-                        <HelpCircle className="h-4 w-4" />
-                        How it Works
-                    </Link>
                 </nav>
                 
                 {/* User Button */}

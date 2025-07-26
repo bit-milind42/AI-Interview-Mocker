@@ -43,11 +43,6 @@ const SubscriptionBadge = () => {
         >
             {config.icon}
             <span className="capitalize">{subscription.plan}</span>
-            {subscription.plan === 'free' && (
-                <span className="text-xs opacity-75">
-                    ({remaining} left)
-                </span>
-            )}
         </Link>
     );
 };

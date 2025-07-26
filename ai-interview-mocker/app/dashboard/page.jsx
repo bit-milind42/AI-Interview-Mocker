@@ -2,7 +2,9 @@ import { UserButton } from "@clerk/nextjs";
 import React from "react";
 import AddNewInterview from "./_components/AddNewInterview";
 import InterviewList from "./_components/InterviewList";
-import { Plus, Zap } from "lucide-react";
+import { Plus, Zap, BarChart3 } from "lucide-react";
+import { Button } from "@/components/ui/button";
+import Link from "next/link";
 
 function Dashboard() {
   return (
@@ -33,10 +35,15 @@ function Dashboard() {
         </div>
         <div className="bg-card border rounded-lg p-6 text-center">
           <div className="h-12 w-12 bg-blue-500/10 rounded-full flex items-center justify-center mx-auto mb-4">
-            <div className="h-6 w-6 bg-blue-500 rounded-full"></div>
+            <BarChart3 className="h-6 w-6 text-blue-500" />
           </div>
           <h3 className="font-semibold text-lg">Track Progress</h3>
-          <p className="text-muted-foreground text-sm">Monitor your improvement</p>
+          <p className="text-muted-foreground text-sm">Monitor your improvement by role & tech</p>
+          <Link href="/dashboard/progress" className="block mt-4">
+            <Button variant="outline" size="sm" className="w-full">
+              View Progress
+            </Button>
+          </Link>
         </div>
       </div>
 

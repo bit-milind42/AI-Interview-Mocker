@@ -6,14 +6,16 @@ import React, { use } from 'react';
 import { db } from '@/utils/db';
 import Webcam from "react-webcam";
 import { useState } from 'react';
-import { WebcamIcon, Lightbulb, Camera, Mic, Play, Briefcase, Clock, FileText, Brain } from 'lucide-react';
+import { WebcamIcon, Lightbulb, Camera, Mic, Play, Briefcase, Clock, FileText, Brain, Users } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import Link from 'next/link';
+import { useRouter } from 'next/navigation';
 
 function Interview({params}){
     const unwrappedParams = React.use(params);
     const [interviewData, setInterviewData] = useState();
     const [webcamEnabled, setWebcamEnabled] = useState(false);
+    const router = useRouter();
     
     useEffect(() => {
         console.log(unwrappedParams.interviewId);

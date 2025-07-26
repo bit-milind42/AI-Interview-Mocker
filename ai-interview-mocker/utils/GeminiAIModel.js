@@ -1,28 +1,22 @@
-const { GoogleGenAI } = require('@google/genai');
+import { GoogleGenerativeAI } from '@google/generative-ai';
 
-async function main() {
-    const ai = new GoogleGenAI({
-        apiKey: process.env.NEXT_PUBLIC_GEMINI_API_KEY,
-    });
-    const config = {
-        thinkingConfig: {
-            thinkingBudget: -1,
-        },
-        responseMimeType: 'text/plain',
-    };
-    const model = 'gemini-2.5-pro';
+const apiKey = process.env.NEXT_PUBLIC_GEMINI_API_KEY;
+const genAI = new GoogleGenerativeAI(apiKey);
 
-    
+const model = genAI.getGenerativeModel({
+    model: "gemini-1.5-flash",
+    systemInstruction: "You are an expert interview coach and HR professional. Generate realistic, relevant interview questions based on the job position, description, and experience level provided. Always return responses in valid JSON format with 'question' and 'answer' fields. Make questions progressively challenging based on experience level."
+});
 
-    const response = await ai.models.generateContentStream({
-        model,
-        config,
-        contents,
-    });
-    let fileIndex = 0;
-    for await (const chunk of response) {
-        console.log(chunk.text);
-    }
-}
+const generationConfig = {
+    temperature: 1,
+    topP: 0.95,
+    topK: 40,
+    maxOutputTokens: 8192,
+    responseMimeType: "text/plain",
+};
 
-main();
+export const chatSession = model.startChat({
+    generationConfig,
+    history: [],
+});
