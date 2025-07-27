@@ -26,19 +26,19 @@ An intelligent AI-powered interview practice platform that helps you ace your ne
 ## 📸 Screenshots
 
 ### Home Page
-![Home Page](./screenshots/home.png)
+![Home Page](https://raw.githubusercontent.com/bit-milind42/AI-Interview-Mocker/main/ai-interview-mocker/home.png)
 *Clean and intuitive landing page showcasing the platform's features*
 
 ### Dashboard
-![Dashboard](./screenshots/dashboard.png)
+![Dashboard](https://raw.githubusercontent.com/bit-milind42/AI-Interview-Mocker/main/ai-interview-mocker/dashboard.png)
 *Comprehensive dashboard to manage your interview sessions and track progress*
 
 ### Interview Feedback
-![Feedback](./screenshots/feedback.png)
+![Feedback](https://raw.githubusercontent.com/bit-milind42/AI-Interview-Mocker/main/ai-interview-mocker/feedback.png)
 *Detailed feedback analysis with scoring and improvement suggestions*
 
 ### Pricing Plans
-![Pricing](./screenshots/pricing.png)
+![Pricing](https://raw.githubusercontent.com/bit-milind42/AI-Interview-Mocker/main/ai-interview-mocker/Pricing.png)
 *Flexible subscription tiers to match your interview preparation needs*
 
 ## 🚀 Quick Start
